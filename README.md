@@ -18,6 +18,20 @@
  1. If not already installed, install [verilator](http://www.veripool.org/projects/verilator/wiki/Installing) (Requires at least v3.886)
  2. If not already installed, install [sbt](http://www.scala-sbt.org/) (Requires at least v0.13.6)
 
+##### Thing to Note
+
+- **JDK Compatibility​**​: The project must be compiled with JDK 8; newer JDK versions resulted in errors.
+
+- **Dependency Sourcing**​​: Some legacy software packages had been relocated, requiring a custom [proxy repository configuration](https://www.scala-sbt.org/1.x/docs/Proxy-Repositories.html) for successful downloads, which is as follows.
+
+```
+$ cat ~/.sbt/repositories
+[repositories]
+local
+maven-central: https://repo1.maven.org/maven2/
+typesafe-ivy-releases: https://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+```
+
 ##### Installation
  1. Clone the repository:
     ```git clone https://github.com/apl-cornell/sirrtl.git; cd sirrtl```
